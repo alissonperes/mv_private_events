@@ -1,15 +1,7 @@
 # Ruby on Rails Tutorial sample application
 
-This is the sample application for
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](https://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
-
-## License
-
-All source code in the [Ruby on Rails Tutorial](https://www.railstutorial.org/)
-is available jointly under the MIT License and the Beerware License. See
-[LICENSE.md](LICENSE.md) for details.
+This is the Private Events for
+[*The Odin Project*](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations#project-2-private-events).
 
 ## Getting started
 
