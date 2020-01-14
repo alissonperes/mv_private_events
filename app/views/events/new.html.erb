@@ -1,0 +1,23 @@
+<% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+<% end %>
+
+<%= form_for(:event, url: events_path) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :creator_id %>
+  <%= f.number_field :creator_id %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <br>
+  <%= f.label :scheduled %>
+  <%= f.datetime_local_field :scheduled %>
+  <br>
+  <%= f.submit "Create Event" %>
+<% end %>

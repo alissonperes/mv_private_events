@@ -1,14 +1,16 @@
 class SessionsController < ApplicationController
+  before_action :current_user
+  
   def new
   end
 
   def create
-    @user = User.find_by(email: params[:session][:email])
-    unless @user.nil?
-      redirect_to @user
+    if (self.current_user = User.find_by(email: params[:session][:email]))
+      flash[:success] = 'You are succesffully loged in.'
+      redirect_to current_user
     else
-      flash[:danger] = 'Invalid email'
-      redirect_to login_path
+      flash.now[:failure] = 'Invalid username. Please try again.'
+      render :new
     end
   end
 end
