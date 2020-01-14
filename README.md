@@ -1,5 +1,3 @@
-# Ruby on Rails Tutorial sample application
-
 This is the Private Events for
 [*The Odin Project*](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations#project-2-private-events).
 
