@@ -1,26 +1,34 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# This file should contain all the record creation needed to seed the database
+# with its default values.
+# The data can then be loaded with the rails db:seed command (or created
+# alongside the database with db:setup).
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
-             password:              "foobar",
-             password_confirmation: "foobar")
+#  movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#  Character.create(name: 'Luke', movie: movies.first)
+User.create!(name: 'Example User',
+             email: 'example@railstutorial.org',
+             password: 'foobar',
+             password_confirmation: 'foobar')
 
 9.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-    User.create!(name:  name,
-                email: email,
-                password:              password,
-                password_confirmation: password)
-    Event.create!(name: Faker::Lorem.sentence(3),
-                  description: Faker::Lorem.sentence(5),
-                  creator_id: 1,
-                  location: Faker::Lorem.sentence(5),
-                  scheduled: Time.now + 10.days + 5.hours)
+  email = "example-#{n + 1}@railstutorial.org"
+  password = 'password'
+  User.create!(name: name,
+               email: email,
+               password: password,
+               password_confirmation: password)
+end
+
+users = User.all
+10.times do
+  users.each do |user|
+    user.events.create!(name: Faker::Lorem.sentence(word_count: 3),
+                        description: Faker::Lorem.sentence(word_count: 5),
+                        creator_id: user.id,
+                        location: Faker::Lorem.sentence(word_count: 5),
+                        scheduled: Time.now + 10.days + 5.hours)
+  end
 end
