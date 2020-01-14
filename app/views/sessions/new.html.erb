@@ -1,0 +1,12 @@
+<% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+<% end %>
+
+<%= form_for(:session, url: login_path) do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+
+  <%= f.submit "Log in", class: "btn btn-primary" %>
+<% end %>
