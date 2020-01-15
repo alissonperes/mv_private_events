@@ -22,13 +22,35 @@ User.create!(name: 'Example User',
                password_confirmation: password)
 end
 
+switcher = false
 users = User.all
 10.times do
   users.each do |user|
-    user.events.create!(name: Faker::Lorem.sentence(word_count: 3),
-                        description: Faker::Lorem.sentence(word_count: 5),
-                        creator_id: user.id,
-                        location: Faker::Lorem.sentence(word_count: 5),
-                        scheduled: Time.now + 10.days + 5.hours)
+    if switcher
+      user.events.create!(name: Faker::Lorem.sentence(word_count: 3),
+                          description: Faker::Lorem.sentence(word_count: 5),
+                          creator_id: user.id,
+                          location: Faker::Lorem.sentence(word_count: 5),
+                          scheduled: Time.now + 10.days + 5.hours)
+    else
+      user.events.create!(name: Faker::Lorem.sentence(word_count: 3),
+                          description: Faker::Lorem.sentence(word_count: 5),
+                          creator_id: user.id,
+                          location: Faker::Lorem.sentence(word_count: 5),
+                          scheduled: Time.now - 10.days - 5.hours)
+    end
+    switcher = !switcher
   end
+end
+
+events = Event.all
+counter = 1
+
+events.each do |event|
+  5.times do
+    user = User.find_by(id: counter)
+    event.attendees << user
+    counter += 1
+  end
+  counter = 1
 end

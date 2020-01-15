@@ -12,17 +12,28 @@
 
 <% if @user.events.count > 0 %>
 <ul>
-  Created events by <%= @user.name %>
+  <strong>Created events by <%= @user.name %></strong>
   <%= render @events %>
 </ul>
 <% end %>
 
 <% if @user.attended_events.count > 0 %>
-<ul> Attended events
+<ul> <strong>Attended events</strong><br>
+  <strong>Upcoming events</strong>
   <% @user.attended_events.each do |x| %>
-    <li>
-      <%= link_to x.description, x %>
-    </li>
+    <% if x.scheduled > Time.now %>
+      <li>
+        <%= link_to x.description, x %>
+      </li>
+    <% end %>
+  <% end %>
+  <br><strong>Previously attended events</strong>
+  <% @user.attended_events.each do |x| %>
+    <% if x.scheduled < Time.now %>
+      <li>
+        <%= link_to x.description, x %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 <% end %>

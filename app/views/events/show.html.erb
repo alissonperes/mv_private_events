@@ -5,7 +5,7 @@
   <%= @event.description %>
 </p>
 <% if @event.attendees.count > 0 %>
-<ul> Attendees
+<ul> <strong>Attendees</strong>
   <% @event.attendees.each do |x| %>
     <li>
       <%= link_to x.name, x %>
