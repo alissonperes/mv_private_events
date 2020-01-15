@@ -10,6 +10,19 @@
   <%= @user.email %>
 </p>
 
+<% if @user.events.count > 0 %>
 <ul>
+  Created events by <%= @user.name %>
   <%= render @events %>
 </ul>
+<% end %>
+
+<% if @user.attended_events.count > 0 %>
+<ul> Attended events
+  <% @user.attended_events.each do |x| %>
+    <li>
+      <%= link_to x.description, x %>
+    </li>
+  <% end %>
+</ul>
+<% end %>

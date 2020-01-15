@@ -4,3 +4,12 @@
   <strong>Description:</strong>
   <%= @event.description %>
 </p>
+<% if @event.attendees.count > 0 %>
+<ul> Attendees
+  <% @event.attendees.each do |x| %>
+    <li>
+      <%= link_to x.name, x %>
+    </li>
+  <% end %>
+</ul>
+<% end %>
