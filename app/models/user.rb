@@ -8,6 +8,7 @@ class User < ApplicationRecord
                     format: { with: URI::MailTo::EMAIL_REGEXP },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   class << self
     def digest(string)
