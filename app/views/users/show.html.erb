@@ -20,7 +20,7 @@
 <% if @user.attended_events.count > 0 %>
 <ul> <strong>Attended events</strong><br>
   <strong>Upcoming events</strong>
-  <% @user.attended_events.each do |x| %>
+  <% @upcoming.each do |x| %>
     <% if x.scheduled > Time.now %>
       <li>
         <%= link_to x.description, x %>
@@ -28,7 +28,7 @@
     <% end %>
   <% end %>
   <br><strong>Previously attended events</strong>
-  <% @user.attended_events.each do |x| %>
+  <% @previous.each do |x| %>
     <% if x.scheduled < Time.now %>
       <li>
         <%= link_to x.description, x %>
