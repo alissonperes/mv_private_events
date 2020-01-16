@@ -12,13 +12,13 @@
   <body>
     <ul>
       <li><%= link_to 'Events', events_path %></li>
-      <% if logged_in? %>
-      <li><%= link_to 'User Profile', current_user %></li>
-      <li><%= link_to 'New event', new_event_path %></li>
-      <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+      <% if @current_user %>
+        <li><%= link_to 'User Profile', @current_user %></li>
+        <li><%= link_to 'New event', new_event_path %></li>
+        <li><%= link_to 'Logout', logout_path, method: :delete %></li>
       <% else %>
-      <li><%= link_to 'Login', login_path %></li>
-      <li><%= link_to 'Signup', signup_path %></li>
+        <li><%= link_to 'Login', login_path %></li>
+        <li><%= link_to 'Signup', signup_path %></li>
       <% end %>
     </ul>
     <%= yield %>
