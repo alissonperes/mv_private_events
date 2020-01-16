@@ -3,8 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  let(:user) { User.create!(name: 'Foobar', email: 'foobar@bar.com',
-                            password: 'foobar', password_confirmation: 'foobar') }
+  let(:user) do
+    User.create!(name: 'Foobar', email: 'foobar@bar.com',
+                 password: 'foobar', password_confirmation: 'foobar')
+  end
 
   subject do
     user.events.create!(name: 'Anything', description: 'Anything',
@@ -26,11 +28,6 @@ RSpec.describe Event, type: :model do
 
   it 'is not valid without a description' do
     subject.description = ''
-    expect(subject).to_not be_valid
-  end
-
-  it 'is not valid without a scheduled date' do
-    subject.scheduled = nil
     expect(subject).to_not be_valid
   end
 

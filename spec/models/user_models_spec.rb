@@ -3,8 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.create(name: 'Foo Bar', email: 'foobar@foo.bar',
-                        password: 'foobar', password_confirmation: 'foobar') }
+  subject do
+    User.create(name: 'Foo Bar', email: 'foobar@foo.bar',
+                password: 'foobar', password_confirmation: 'foobar')
+  end
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid

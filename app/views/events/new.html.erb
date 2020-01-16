@@ -1,5 +1,10 @@
-<% flash.each do |message_type, message| %>
-    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+<% if @event && @event.errors.any? %>
+  The form contains <%= pluralize(@event.errors.count, "error") %>.
+  <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <%= form_for(:event, url: events_path) do |f| %>
