@@ -20,21 +20,25 @@
 <% if @user.attended_events.count > 0 %>
 <ul>
   <strong>Attended events</strong><br>
-  <strong>Upcoming events</strong>
-  <% @upcoming.each do |x| %>
-    <% if x.scheduled > Time.now %>
-      <li>
-        <%= link_to x.description, x %>
-      </li>
+  <li>
+    <strong>Upcoming events</strong>
+  </li>
+  <ul>
+    <% @upcoming.each do |x| %>
+    <li>
+      <%= link_to x.description, x %>
+    </li>
     <% end %>
-  <% end %>
-  <br><strong>Previously attended events</strong>
-  <% @previous.each do |x| %>
-    <% if x.scheduled < Time.now %>
-      <li>
-        <%= link_to x.description, x %>
-      </li>
+  </ul>
+  <li>
+    <strong>Previously attended events</strong>
+  </li>
+  <ul>
+    <% @previous.each do |x| %>
+    <li>
+      <%= link_to x.description, x %>
+    </li>
     <% end %>
-  <% end %>
+  </ul>
 </ul>
 <% end %>
