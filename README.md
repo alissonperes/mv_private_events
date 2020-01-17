@@ -52,7 +52,7 @@ $ rails server
 👤 **Alisson Peres**
 
 - Github: [@alissonperes](https://github.com/alissonperes)
-- Website: [alissonperes](http://alissonperes.com/#myPage)
+- Linkedin: [linkedin](https://www.linkedin.com/in/alissonperes/)
 
 
 ## 🤝 Contributing
