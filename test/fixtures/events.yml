@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+event1:
+  name: 'Event1'
+  description: 'Event1 description'
+  scheduled: <%= Time.now + 3.hours %>
+  creator: user1
+
+event2:
+  name: 'Event2'
+  description: 'Event2 description'
+  scheduled: <%= Time.now + 3.hours %>
+  creator: user2

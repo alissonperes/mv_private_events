@@ -1,0 +1,19 @@
+<% if @event && @event.errors.any? %>
+  The form contains <%= pluralize(@event.errors.count, "error") %>.
+  <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(:event, url: events_path) do |f| %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.label :scheduled %>
+  <%= f.datetime_field :scheduled %>
+  <br>
+  <%= f.submit "Create Event" %>
+<% end %>

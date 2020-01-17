@@ -1,0 +1,17 @@
+<h1>Events</h1>
+<% if @upcoming.count < 1 && @previous.count <1 %>
+  <h2>No events created</h2>
+  <%= link_to 'Create a new event', new_event_path %>
+<% end %>
+<% if @upcoming.count > 0 %>
+  <h2>Upcoming</h2>
+  <% @upcoming.each do |event| %>
+      <%= render 'events/event', event: event %>
+  <% end %>
+<% end %>
+<% if @previous.count > 0 %>
+  <h2>Previous</h2>
+  <% @previous.each do |event| %>
+    <%= render 'events/event', event: event %>
+  <% end %>
+<% end %>

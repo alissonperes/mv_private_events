@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<% if @user.events.count > 0 %>
+<ul>
+  <strong>Created events by <%= @user.name %></strong>
+  <%= render @events %>
+</ul>
+<% end %>
+
+<% if @user.attended_events.count > 0 %>
+<ul>
+  <strong>Attended events</strong><br>
+  <li>
+    <strong>Upcoming events</strong>
+  </li>
+  <ul>
+    <% @upcoming.each do |x| %>
+    <li>
+      <%= link_to x.description, x %>
+    </li>
+    <% end %>
+  </ul>
+  <li>
+    <strong>Previously attended events</strong>
+  </li>
+  <ul>
+    <% @previous.each do |x| %>
+    <li>
+      <%= link_to x.description, x %>
+    </li>
+    <% end %>
+  </ul>
+</ul>
+<% end %>

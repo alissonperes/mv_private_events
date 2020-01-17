@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+<p>
+  <strong>Scheduled: </strong>
+  <%= @event.scheduled %>
+</p>
+<% if @event.attendees.count > 0 %>
+  <ul> <strong>Attendees</strong>
+    <% @event.attendees.each do |x| %>
+      <li>
+        <%= link_to x.name, x %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
