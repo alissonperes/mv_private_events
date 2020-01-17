@@ -18,7 +18,8 @@
 <% end %>
 
 <% if @user.attended_events.count > 0 %>
-<ul> <strong>Attended events</strong><br>
+<ul>
+  <strong>Attended events</strong><br>
   <strong>Upcoming events</strong>
   <% @upcoming.each do |x| %>
     <% if x.scheduled > Time.now %>

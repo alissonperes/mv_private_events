@@ -6,7 +6,7 @@ class EventTest < ActiveSupport::TestCase
   # end
   def setup
     @event = Event.new(name: 'test event', description: 'test event',
-                       location: 'test event', scheduled: Time.now - 2.hours,
+                       location: 'test event', scheduled: Time.now + 2.hours,
                        creator: users(:user1))
   end
 

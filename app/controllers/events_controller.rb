@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  before_action :current_user
+  before_action :logged_in_user, only: %i[create new]
+
   def index
     @events = Event.all
     @upcoming = @events.upcoming
@@ -7,10 +10,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-  end
-
-  def new
-    @event = Event.new
   end
 
   def create

@@ -18,7 +18,9 @@ RSpec.feature 'EventsManagements', type: :feature do
     expect(page).to have_content 'User Profile'
     click_link 'New event'
     expect(page).to have_field 'Description'
+    expect(page).to have_field 'Scheduled'
     fill_in 'event_description', with: 'some weird convention'
+    fill_in 'event_scheduled', with: Time.now
     click_button 'Create Event'
     expect(page).to have_content 'Event Created!'
   end
@@ -31,7 +33,9 @@ RSpec.feature 'EventsManagements', type: :feature do
     expect(page).to have_content 'User Profile'
     click_link 'New event'
     expect(page).to have_field 'Description'
+    expect(page).to have_field 'Scheduled'
     fill_in 'event_description', with: 'some weird convention'
+    fill_in 'event_scheduled', with: Time.now
     click_button 'Create Event'
     expect(page).to have_content 'Event Created!'
   end

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :current_user
+  before_action :logged_in_user, only: %i[show]
+
   def new
     @user = User.new
   end
